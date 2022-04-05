@@ -1,15 +1,15 @@
 import bookFacade from "../bookFacade";
 
-export default () => {
+export default function books() {
   return (
     <>
-      <h2>Books!</h2>
+      <h2>Get All Books!</h2>
       {bookFacade.getBooks().map((book) => (
         <div>
-          <h2>{book.title}</h2>
+          <h3>{book.title}</h3>
           <p>{book.info}</p>
         </div>
       ))}
     </>
   );
-};
+}

@@ -5,6 +5,8 @@ import App from "./App";
 // import Invoices from "./routes/invoices";
 // import Invoice from "./routes/invoice";
 import Books from "./routes/books";
+import AddBook from "./routes/addBook";
+import FindBook from "./routes/findBook";
 
 const rootElement = document.getElementById("root");
 render(
@@ -12,8 +14,18 @@ render(
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/books" element={<Books />} />
-      <Route path="/add_book" element={<div>Add book</div>} />
-      <Route path="/find_book" element={<div>Find book</div>} />
+      <Route path="/add_book" element={<AddBook />} />
+      <Route path="/find_book" element={<FindBook />}>
+        <Route path=":bookId" element={<FindBook />} />
+      </Route>
+      <Route
+        path="*"
+        element={
+          <main style={{ padding: "1rem" }}>
+            <p>There's nothing here!</p>
+          </main>
+        }
+      />
     </Routes>
   </BrowserRouter>,
   rootElement
