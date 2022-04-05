@@ -12,13 +12,15 @@ const rootElement = document.getElementById("root");
 render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="/books" element={<Books />} />
-      <Route path="/add_book" element={<AddBook />} />
-      <Route path="/find_book" element={<FindBook />}>
-        <Route path=":bookId" element={<FindBook />} />
+      <Route path="/" element={<App />}>
+        <Route path="/books" element={<Books />} />
+        <Route path="/add_book" element={<AddBook />} />
+        <Route path="/find_book" element={<FindBook />}>
+          <Route path=":bookId" element={<FindBook />} />
+        </Route>
       </Route>
       <Route
+        // default for example http://localhost:3000/invoicesjjkk
         path="*"
         element={
           <main style={{ padding: "1rem" }}>

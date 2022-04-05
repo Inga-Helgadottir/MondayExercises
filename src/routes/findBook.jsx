@@ -9,6 +9,9 @@ export default function findBook() {
 
   const checkMatch = (book) => {
     let filter = searchParams.get("filter");
+    if (filter === "" || filter === null) {
+      return true;
+    }
     let bookIdString = book.id.toString();
     let doesInclude = bookIdString.includes(filter);
     if (doesInclude) {
@@ -17,6 +20,7 @@ export default function findBook() {
       return false;
     }
   };
+
   let bookMatches = books.filter(checkMatch);
 
   return (
